@@ -20,7 +20,6 @@ sudo pip3 install -r /var/www/html/captive-portal/corendon-captive-portal/requir
 # Get SSL certificate
 sudo a2enmod ssl
 openssl req -x509 -newkey rsa:4096 -nodes -keyout corendon-login.nl.key -out corendon-login.nl.cert -sha256 -days 1000 -subj '/CN=corendon-login.nl'
-# sudo openssl x509 -req -days 365 -in /etc/ssl/certs/corendon_captive_portal.csr -signkey /etc/ssl/private/corendon_captive_portal.key -out /etc/ssl/certs/corendon_captive_portal.crt
 
 # Apache2 config for wsgi and flask site
 sudo cat > /etc/apache2/sites-available/flask.conf << EOF
