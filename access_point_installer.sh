@@ -2,6 +2,7 @@ sudo apt-get install dnsmasq hostapd dhcpd dhcpcd5
 
 sudo systemctl stop dnsmasq
 sudo systemctl stop hostapd
+sudo systemctl stop systemd-resolved
 
 sudo cat > /etc/dhcpcd.conf << EOF
 	denyinterface wlan0
@@ -29,8 +30,6 @@ sudo cat > /etc/dnsmasq.conf << EOF
 	dhcp-range=192.168.4.2,192.168.20,255.255.255.0,24h
 EOF
 
-sudo systemctl stop systemd-resolved
-
 sudo systemctl start dnsmasq
 
 sudo cat > /etc/hostapd/hostapd.conf << EOF
@@ -42,7 +41,7 @@ sudo cat > /etc/hostapd/hostapd.conf << EOF
 	wpa_passphrase=YOURPWD
 	wpa_key_mgmt=WPA-PSK
 	wpa_pairwise=TKIP CCMP
-  rsn_pairwise=CCMP
+  	rsn_pairwise=CCMP
 EOF
 
 sudo cat > /etc/default/hostapd << EOF
