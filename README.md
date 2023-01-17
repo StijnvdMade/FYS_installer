@@ -1,5 +1,4 @@
-# FYS_installer
-How to setup captive portal:
+# How to setup captive portal:
 Clone github repo:  
 ```sudo git clone https://github.com/StijnvdMade/FYS_installer.git```
 
