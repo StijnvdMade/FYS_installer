@@ -61,4 +61,4 @@ sudo iptables -t nat -A POSTROUTING -o etho0 -j MASQUERADE
 sudo iptables -A FROWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
 sudo iptables -A FROWARD -i wlan0 -o eth0 -j ACCEPT
 
-sudo sh -c "iptables-save > /etc/ipatables.ipv4.nat
+sudo sh -c "iptables-save > /etc/ipatables.ipv4.nat"
