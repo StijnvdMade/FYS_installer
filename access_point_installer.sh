@@ -1,8 +1,8 @@
 sudo apt-get install dnsmasq hostapd dhcpd dhcpcd5
 
-sudo systemctl stop dnsmasq
-sudo systemctl stop hostapd
-sudo systemctl stop systemd-resolved
+systemctl stop dnsmasq
+systemctl stop hostapd
+systemctl stop systemd-resolved
 
 sudo cat > /etc/dhcpcd.conf << EOF
 denyinterface wlan0
@@ -25,7 +25,7 @@ sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.orig
 
 sudo cat > /etc/dnsmasq.conf << EOF
 interface=wlan0
-bin-interfaces
+#bin-interfaces
 server=8.8.8.8
 bogus-priv
 dhcp-range=192.168.4.2,192.168.4.20,255.255.255.0,24h
