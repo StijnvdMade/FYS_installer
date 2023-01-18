@@ -1,8 +1,8 @@
 sudo apt-get install dnsmasq hostapd dhcpd dhcpcd5
 
-systemctl stop dnsmasq
-systemctl stop hostapd
-systemctl stop systemd-resolved
+sudo systemctl stop dnsmasq
+sudo systemctl stop hostapd
+sudo systemctl stop systemd-resolved
 
 sudo cat > /etc/dhcpcd.conf << EOF
 denyinterface wlan0
