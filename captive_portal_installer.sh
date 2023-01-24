@@ -8,7 +8,7 @@ sudo a2enmod wsgi
 sudo systemctl start mysql.service
 
 # Get git corendon-captive-portal repository and move to correct directory
-sudo git clone https://github.com/StijnvdMade/corendon_raspi.git /var/www/venv
+sudo git clone https://github.com/StijnvdMade/corendon_raspi.git /var/www/
 
 # Create virtual environment
 sudo python3 -m venv /var/www/corendon_raspi/venv
