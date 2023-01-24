@@ -15,7 +15,8 @@ sudo flask --app /var/www/corendon_raspi/FlaskApp init-db
 
 # Get SSL certificate
 sudo a2enmod ssl
-openssl req -x509 -newkey rsa:4096 -nodes -keyout corendon-login.nl.key -out corendon-login.nl.crt -sha256 -days 1000 -subj '/CN=corendon-login.nl'
+sudo mkdir /etc/apache2/ssl
+sudo openssl req -x509 -newkey rsa:4096 -nodes -keyout /etc/apache2/ssl/corendon-login.nl.key -out /etc/apache2/ssl/corendon-login.nl.crt -sha256 -days 1000 -subj '/CN=corendon-login.nl'
 
 # Apache2 config for wsgi and flask site
 sudo cat > /etc/apache2/sites-available/flask.conf << EOF
