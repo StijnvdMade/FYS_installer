@@ -1,4 +1,7 @@
 # How to setup captive portal:
+Install git through apt:
+```sudo apt install git```
+
 Clone github repo:  
 ```sudo git clone https://github.com/StijnvdMade/FYS_installer.git```
 
