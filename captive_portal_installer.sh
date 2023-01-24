@@ -1,9 +1,6 @@
 # Install packages
 sudo apt install apache2 python3-pip python3-virtualenv npm openssl python3-venv -y
 
-# Enable apache2 wsgi module
-sudo a2enmod wsgi
-
 # Get git corendon-captive-portal repository and move to correct directory
 sudo git clone https://github.com/StijnvdMade/corendon_raspi.git /var/www/
 
@@ -52,6 +49,9 @@ sudo cat > /etc/apache2/sites-available/flask.conf << EOF
     </Directory>
 </VirtualHost>
 EOF
+
+# Enable apache2 wsgi module
+sudo a2enmod flask
 
 # Disabling default apache2 site and enabling flask site
 sudo a2dissite 000-default
