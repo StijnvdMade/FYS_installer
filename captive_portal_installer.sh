@@ -1,5 +1,5 @@
 # Install packages
-sudo apt install apache2 python3-pip python3-virtualenv npm openssl python3-venv -y
+sudo apt install apache2 python3-pip python3-virtualenv npm openssl python3-venv libapache2-mod-wsgi-py3 -y
 
 # Get git corendon-captive-portal repository and move to correct directory
 sudo git clone https://github.com/StijnvdMade/corendon_raspi.git /var/www/corendon_raspi
