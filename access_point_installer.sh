@@ -17,13 +17,18 @@ denyinterfaces wlan0
 EOF
 
 sudo cat > /etc/network/interfaces << EOF
-Allow-hotplug wlan0
-iface wlan0 inet static
-address 192.168.4.1
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+address 192.168.137.60
 netmask 255.255.255.0
-network 192.168.4.0
-broadcast 192.168.4.255
-#wpa-conf /etc/wpa_supplicant.conf
+gateway 192.168.137.1
+dns-nameservers 8.8.8.8
+dns-search google.com
+
+auto wlan0
 EOF
 
 sudo service dhcpcd restart
