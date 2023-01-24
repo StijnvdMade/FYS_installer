@@ -1,5 +1,5 @@
 # Install packages
-sudo apt install apache2 libapache2-mod-wsgi-py3 python3-pip git python3-virtualenv npm openssl python3-venv -y
+sudo apt install apache2 python3-pip python3-virtualenv npm openssl python3-venv -y
 
 # Enable apache2 wsgi module
 sudo a2enmod wsgi
@@ -11,12 +11,14 @@ sudo git clone https://github.com/StijnvdMade/corendon_raspi.git /var/www/
 sudo python3 -m venv /var/www/corendon_raspi/venv
 # Activate virtual environment
 . /var/www/corendon_raspi/venv/bin/activate
-# Installing flask module in venv
-sudo pip3 install -r /var/www/html/captive-portal/corendon-captive-portal/requirements.txt
+# Install flask
+sudo pip install Flask
+# Setup database
+sudo flask --app /var/www/corendon_raspi/FlaskApp init-db
 
 # Get SSL certificate
 sudo a2enmod ssl
-openssl req -x509 -newkey rsa:4096 -nodes -keyout corendon-login.nl.key -out corendon-login.nl.cert -sha256 -days 1000 -subj '/CN=corendon-login.nl'
+openssl req -x509 -newkey rsa:4096 -nodes -keyout corendon-login.nl.key -out corendon-login.nl.crt -sha256 -days 1000 -subj '/CN=corendon-login.nl'
 
 # Apache2 config for wsgi and flask site
 sudo cat > /etc/apache2/sites-available/flask.conf << EOF
@@ -59,9 +61,6 @@ sudo a2ensite flask
 sudo cat > /etc/sudoers.d/www-data << EOF
 www-data ALL=NOPASSWD: /usr/sbin/ipset
 EOF
-
-# Setup database
-sudo flask --app /var/www/corendon_raspi/FlaskApp init-db
 
 # Reload apache2 to load the right config
 sudo systemctl reload apache2
