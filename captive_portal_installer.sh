@@ -1,5 +1,5 @@
 # Install packages
-sudo apt install apache2 libapache2-mod-wsgi-py3 python3-pip git mysql-server python3-virtualenv libmysqlclient-dev nodejs npm openssl -y
+sudo apt install apache2 libapache2-mod-wsgi-py3 python3-pip git mysql-server python3-virtualenv libmysqlclient-dev nodejs npm openssl python3-venv -y
 
 # Enable apache2 wsgi module
 sudo a2enmod wsgi
