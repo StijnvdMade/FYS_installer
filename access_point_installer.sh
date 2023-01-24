@@ -8,7 +8,7 @@ sudo systemctl stop systemd-resolved
 
 sudo cat > /etc/dhcpcd.conf << EOF
 denyinterface wlan0
-static ip_address=192.168.4.1
+static ip_address=192.168.137.60
 EOF
 
 sudo cat > /etc/network/interfaces << EOF
