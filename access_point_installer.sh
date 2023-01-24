@@ -36,11 +36,13 @@ sudo service dhcpcd restart
 sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.orig
 
 sudo cat > /etc/dnsmasq.conf << EOF
-interface=wlan0
-#bin-interfaces
 server=8.8.8.8
-bogus-priv
-dhcp-range=192.168.4.2,192.168.4.20,255.255.255.0,24h
+dhcp-option=option:router,192.168.2.3
+dhcp-option=option:dns-server,192.168.2.3
+interface=wlan0
+    dhcp-range=192.168.2.11,192.168.2.200,255.255.255.0,24h
+
+address=/corendon-login.nl/192.168.2.3
 EOF
 
 sudo systemctl start dnsmasq
