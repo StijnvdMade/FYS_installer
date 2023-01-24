@@ -50,13 +50,14 @@ sudo cat > /etc/default/hostapd <<EOF
 DAEMON_CONF="/etc/hostapd/hostapd.conf"
 EOF
 
+sudo cat > /etc/sysctl.conf << EOF
+net.ipv4.ip_foward=1
+net.ipv6.conf.eth0.disable_ipv6 = 1
+EOF
+
 sudo systemctl unmask hostapd
 sudo systemctl enable hostapd
 sudo systemctl start hostapd
-
-sudo cat > /etc/sysctl.conf << EOF
-net.ipv4.ip_foward=1
-EOF
 
 sudo iptables -t nat -A POSTROUTING -o etho0 -j MASQUERADE
 sudo iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
