@@ -1,11 +1,8 @@
 # Install packages
-sudo apt install apache2 libapache2-mod-wsgi-py3 python3-pip git mysql-server python3-virtualenv libmysqlclient-dev nodejs npm openssl python3-venv -y
+sudo apt install apache2 libapache2-mod-wsgi-py3 python3-pip git python3-virtualenv npm openssl python3-venv -y
 
 # Enable apache2 wsgi module
 sudo a2enmod wsgi
-
-# Start mysql service
-sudo systemctl start mysql.service
 
 # Get git corendon-captive-portal repository and move to correct directory
 sudo git clone https://github.com/StijnvdMade/corendon_raspi.git /var/www/

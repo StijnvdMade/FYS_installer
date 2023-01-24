@@ -1,3 +1,5 @@
+sudo apt-get update
+
 sudo apt-get install dnsmasq hostapd dhcpd dhcpcd5
 
 sudo systemctl stop dnsmasq
