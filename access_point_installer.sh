@@ -35,7 +35,7 @@ sudo systemctl start dnsmasq
 
 sudo cat > /etc/hostapd/hostapd.conf << EOF
 interface=wlan0
-driver=nl180211
+# driver=nl180211
 hw_mode=g
 channel=1
 ssid=Fly Corendon
